@@ -1,20 +1,10 @@
-let didScroll = false;
-let paralaxTitles = document.querySelectorAll('.paralax-title');
 
-const scrollInProgress = () => {
-  didScroll = true
-}
+// Get the modal
+var modal = document.getElementById('id01');
 
-const raf = () => {
-  if(didScroll) {
-    paralaxTitles.forEach((element, index) => {
-      element.style.transform = "translateX("+ window.scrollY / 10 + "%)"
-    })
-    didScroll = false;
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
   }
-  requestAnimationFrame(raf);
 }
-
-
-requestAnimationFrame(raf);
-window.addEventListener('scroll', scrollInProgress)
